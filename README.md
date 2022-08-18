@@ -35,6 +35,7 @@ CUDA_VISIBLE_DEVICES=[] python train_ssd_gsm_ucfilter.py --adaptive_filtering=Tr
      ```Shell
      # The save folder location is set in the file
      python wl_voc_gsm.py --trained_model=[save update point file]
+     ```
      ```Shell
      - (3) Resume with update file
      ```

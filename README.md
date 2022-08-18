@@ -49,10 +49,25 @@ python eval_voc_gsm.py --trained_model=weights/ssd_300_120000.pth
 ```
 **Ensemble**
 (1) Make json file for ensemble 
-'''
+```Shell
+# File trained only with voc2007
+python eval_voc_gsm.py --trained_model=[only07.pth]
+# File before update
 python eval_voc_gsm.py --trained_model=[save update point file]
-
-'''
+# File after update
+python eval_voc_gsm.py --trained_model=ssd_300_120000.pth
+```
+(2) Weight box Fusion
+```Shell
+cd Weighted-Boxes-Fusion/
+# Input the three files in (1) -> make results
+python wbf_3_voc.py
+```
+(3) Eval output results file
+```Shell
+cd scripts/
+python reval_voc_py3.py --voc_dir=../../data/VOCDevkit/ --year=2007 --image_set=test --classes=voc.names [output_dir]
+```
 
 ## Result
 We report the average Top-1 accuracy of three runs.

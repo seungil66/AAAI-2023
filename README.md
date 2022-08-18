@@ -72,8 +72,7 @@ python reval_voc_py3.py --voc_dir=../../data/VOCDevkit/ --year=2007 --image_set=
 ## Result
 We report the ablation study.
 
-|           |    FN    | FP(adaptive_filtering) |    Ensemble      |    mAP(%)     |
-|           |          | + Pseudo_label update  |                  |               |
+|           |    FN    |  FP(filtering+update)  |    Ensemble      |    mAP(%)     |
 |:---------:|:--------:|:----------------------:|:----------------:|:--------------:|
 |           |          |                        |                  |      71.8      |
 |    SSD    |     √    |                        |                  |      72.3      |

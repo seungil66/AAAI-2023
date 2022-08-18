@@ -72,12 +72,12 @@ python reval_voc_py3.py --voc_dir=../../data/VOCDevkit/ --year=2007 --image_set=
 ## Result
 We report the ablation study.
 
-|           |    FN    |  FP(filtering+update)  |    Ensemble      |    mAP(%)     |
-|:---------:|:--------:|:----------------------:|:----------------:|:--------------:|
-|           |          |                        |                  |      71.8      |
-|    SSD    |     √    |                        |                  |      72.3      |
-|    mAP    |     √    |           √            |                  |      73.4      |
-|           |     √    |           √            |        √         |      75.1      |
+|    FN    |  FP(filtering+update)  |    Ensemble      |    mAP(%)     |
+|:--------:|:----------------------:|:----------------:|:--------------:|
+|          |                        |                  |      71.8      |
+|     √    |                        |                  |      72.3      |
+|     √    |           √            |                  |      73.4      |
+|     √    |           √            |        √         |      75.1      |
 
 
 

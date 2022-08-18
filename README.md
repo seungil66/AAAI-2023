@@ -70,16 +70,15 @@ python reval_voc_py3.py --voc_dir=../../data/VOCDevkit/ --year=2007 --image_set=
 ```
 
 ## Result
-We report the average Top-1 accuracy of three runs.
+We report the ablation study.
 
-### Single-step training results
-|    Dataset    |   Network   | Previous data Top-1(%) | New data Top-1(%) |
-|:-------------:|:-----------:|:----------------------:|:-----------------:|
-|   CIFAR-100   |  ResNet110  |          63.19         |       69.71       |
-| Tiny-ImageNet | MobileNetv2 |          54.69         |       59.00       |
+|           |    FN    | FP(adaptive_filtering) ||    Ensemble     ||    mAP(%)     |
+|           |          | + Pseudo_label update  ||                 ||               |
+|:---------:|:--------:|:----------------------:|:----------------:|:--------------:|
+|           |          |                        |                  |      71.8      |
+|    SSD    |     √    |                        |                  |      72.3      |
+|    mAP    |     √    |           √            |                  |      73.4      |
+|           |     √    |           √            |        √         |      75.1      |
 
-### Multi-step training results
-|    Dataset    |   Network   | Data1 Top-1(%) | Data2 Top-1(%) | Data3 Top-1(%) | Data4 Top-1(%) |
-|:-------------:|:-----------:|:--------------:|:--------------:|:--------------:|:--------------:|
-|   CIFAR-100   |  ResNet110  |      53.45     |      59.80     |      63.18     |      65.27     |
-| Tiny-ImageNet | MobileNetv2 |      45.02     |      50.40     |      53.09     |      54.64     |
+
+

@@ -1,55 +1,33 @@
 # AAAI-2023
 
 # Multi-step-training-framework
-This is the PyTorch implementation of the paper "Multi-step training framework using Sparsity training for Efficient utilization of Accumulated new data".
+This is the PyTorch-SSD implementation of the paper "Uncertainty-based One-phase Learning to Enhance Pseudo-Label Reliability for Semi-supervised Object Detection".
 
 ## Enviornment details
 Ubuntu 18.04.5    
-CUDA 10.2   
+CUDA 9.2   
 Python version 3.7    
-Pytorch version 1.9.0   
-torchvision 0.10.0    
+Pytorch version 1.2.0   
+torchvision 0.4.0    
 
-## Split dataset
-For Single-step experiment, we split CIFAR-100 and Tiny-ImageNet datasets by 1:1 and used as previous data and new data.   
-For Multi-step experiment, we split CIFAR-100 and Tiny-ImageNet dataset by 1:1:1:1 and used as Data1, Data2, Data3, and Data4.  
+## Dataset
+Using VOC2007 as labeled dataset and VOC2012 as unlabeled dataset.  
 
-## Multi-step training using CIFAR-100
+### Training step
+**Training**
+```
+CUDA_VISIBLE_DEVICES=[] python train_ssd_gsm_ucfilter.py 
+```
+**Training with adaptive filtering**
+```
+CUDA_VISIBLE_DEVICES=[] python train_ssd_gsm_ucfilter.py --adaptive_filtering=True
+```
+### Evaluation step
+**Eval mAP(%)**
+```
+python eval_voc_gsm.py --trained_model=weights/ssd_300_120000.pth
+```
 
-To conduct multi-step training with CIFAR-100 dataset on ResNet110, run this command Sequentially.   
-
-### Step 1
-**(1) : Training using Data1**
-```
-python train.py --arch resnet110 --batch_size 256 --cifar 100 
-```
-**(2) : SST using Data1**
-```
-Python sp_train.py --arch resnet110 --batch_size 256 --resume path_to_result_of_(1) --s regularization_strength --ratio target_r
-```
-### Step 2 (Single-step)
-**(3) : AOD using Data2**
-```
-python aod.py --arch resnet110 --batch_size 256 --cifar 100 --resume path_to_result_of_(2) --ratio target_r_of_(2)
-```
-**(4) : SST with MSL using Data2**
-```
-python multi_sp_train.py --arch resnet110 --batch_size 256 --cifar 100 --resume path_to_result_of_(3) --s regularization strength --ratio target_r
-```
-### Step 3 (Multi-step)
-**(5) : AOD using Data3**
-```
-python aod.py --arch resnet110 --batch_size 256 --cifar 100 --resume path_to_result_of_(4) --ratio target_r_of_(4)
-```
-**(6) : SST with MSL using Data3**
-```
-python multi_sp_train.py --arch resnet110 --batch_size 256 --cifar 100 --resume path_to_result_of_(5) --s regularization strength --ratio target_r
-```
-### Step 4 (Multi-step)
-**(7) : AOD using Data4**
-```
-python aod.py --arch resnet110 --batch_size 256 --cifar 100 --resume path_to_result_of_(6) --ratio target_r_of_(6)
-```
 
 ## Result
 We report the average Top-1 accuracy of three runs.

@@ -30,7 +30,11 @@ CUDA_VISIBLE_DEVICES=[] python train_ssd_gsm_ucfilter.py --adaptive_filtering=Tr
      - If you want to compare static filtering, find the static keyword and uncommend it.
   - Pseudo label update 
      - Search key word : update
-     - 
+     (1)
+     ```
+     
+     ```
+     
 
 
 

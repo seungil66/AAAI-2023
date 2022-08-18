@@ -61,7 +61,7 @@ python eval_voc_gsm.py --trained_model=ssd_300_120000.pth
 ```Shell
 cd Weighted-Boxes-Fusion/
 # Input the three files in (1) -> make results
-python wbf_3_voc.py
+python wbf_3_voc.py [input1] [input2] [input3]
 ```
 (3) Eval output results file
 ```Shell

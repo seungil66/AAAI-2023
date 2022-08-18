@@ -22,10 +22,15 @@ CUDA_VISIBLE_DEVICES=[] python train_ssd_gsm_ucfilter.py --adaptive_filtering=Tr
 ```
 
 **Training with proposed method**
-  - FP solution (adaptive filtering)
-     - aa
   - FN solution (uc weighted loss)
-
+     - Search key word : scale
+     - Weighted by uncertainty for all negative sample
+  - FP solution (adaptive filtering)
+     - Search key word : adaptive
+     - If you want to compare static filtering, find the static keyword and uncommend it.
+  - Pseudo label update 
+     - Search key word : update
+     - 
 
 
 

@@ -36,25 +36,23 @@ CUDA_VISIBLE_DEVICES=[] python train_ssd_gsm_ucfilter.py --adaptive_filtering=Tr
      # The save folder location is set in the file
      python wl_voc_gsm.py --trained_model=[save update point file]
      ```
-     
-
      - (3) Resume with update file
-     ```Shell
-     
+     ```Shell     
      # Before train, update the pseudo label file(Annotations, txt list file) created in step (2) to voc0712.py
      CUDA_VISIBLE_DEVICES=[] python train_ssd_gsm_ucfilter.py --resume=[save update point file]
      ```
      
-
-
-
-
 ## Evaluation step
 **Eval mAP(%)**
 ```
 python eval_voc_gsm.py --trained_model=weights/ssd_300_120000.pth
 ```
+**Ensemble**
+(1) Make json file for ensemble 
+'''
+python eval_voc_gsm.py --trained_model=[save update point file]
 
+'''
 
 ## Result
 We report the average Top-1 accuracy of three runs.

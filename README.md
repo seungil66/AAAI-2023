@@ -30,9 +30,16 @@ CUDA_VISIBLE_DEVICES=[] python train_ssd_gsm_ucfilter.py --adaptive_filtering=Tr
      - If you want to compare static filtering, find the static keyword and uncommend it.
   - Pseudo label update 
      - Search key word : update
-     (1)
+     - (1) Find keyword and uncommend codes -> save update point file 
+     - (2) Pseudo label update with saved file
      ```
-     
+     # The save folder location is set in the file
+     python wl_voc_gsm.py --trained_model=[save update point file]
+     ```
+     - (3) Resume with update file
+     ```
+     # Before train, update the pseudo label file(Annotations, txt list file) created in step (2) to voc0712.py
+     CUDA_VISIBLE_DEVICES=[] python train_ssd_gsm_ucfilter.py --resume=[save update point file]
      ```
      
 

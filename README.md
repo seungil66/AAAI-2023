@@ -1,6 +1,5 @@
 # AAAI-2023
 
-# Multi-step-training-framework
 This is the PyTorch-SSD implementation of the paper "Uncertainty-based One-phase Learning to Enhance Pseudo-Label Reliability for Semi-supervised Object Detection".
 
 ## Enviornment details
@@ -13,16 +12,21 @@ torchvision 0.4.0
 ## Dataset
 Using VOC2007 as labeled dataset and VOC2012 as unlabeled dataset.  
 
-### Training step
+## Training step
 **Training**
 ```
-CUDA_VISIBLE_DEVICES=[] python train_ssd_gsm_ucfilter.py 
+CUDA_VISIBLE_DEVICES=[] python train_ssd_gsm_ucfilter.py  
 ```
-**Training with adaptive filtering**
+**Training with proposed method**
 ```
+# You can 
 CUDA_VISIBLE_DEVICES=[] python train_ssd_gsm_ucfilter.py --adaptive_filtering=True
+
+# You can search for pseudo-label update point in train_ssd_gsm_ucfilter.py with keyword [update]
+
 ```
-### Evaluation step
+You can 
+## Evaluation step
 **Eval mAP(%)**
 ```
 python eval_voc_gsm.py --trained_model=weights/ssd_300_120000.pth

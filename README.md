@@ -16,16 +16,20 @@ Using VOC2007 as labeled dataset and VOC2012 as unlabeled dataset.
 **Training**
 ```
 CUDA_VISIBLE_DEVICES=[] python train_ssd_gsm_ucfilter.py  
-```
-**Training with proposed method**
-```
-# You can 
-CUDA_VISIBLE_DEVICES=[] python train_ssd_gsm_ucfilter.py --adaptive_filtering=True
 
 # You can search for pseudo-label update point in train_ssd_gsm_ucfilter.py with keyword [update]
-
+CUDA_VISIBLE_DEVICES=[] python train_ssd_gsm_ucfilter.py --adaptive_filtering=True
 ```
-You can 
+
+**Training with proposed method**
+  - FP solution (adaptive filtering)
+     - aa
+  - FN solution (uc weighted loss)
+
+
+
+
+
 ## Evaluation step
 **Eval mAP(%)**
 ```

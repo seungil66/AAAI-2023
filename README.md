@@ -15,7 +15,7 @@ For MS-COCO, use Co-35k(valminusminival) as labeled dataset and Co-80k(trainval)
 
 ## Training step
 **Training**
-```
+```Shell
 CUDA_VISIBLE_DEVICES=[] python train_ssd_gsm_ucfilter.py  
 
 # You can search for pseudo-label update point in train_ssd_gsm_ucfilter.py with keyword [update]
@@ -48,9 +48,10 @@ CUDA_VISIBLE_DEVICES=[] python train_ssd_gsm_ucfilter.py --dataset=COCO
      
 ## Evaluation step
 **Eval mAP(%)**
-```
+```Shell
 # for pascal voc
 python eval_voc_gsm.py --trained_model=weights/ssd_300_120000.pth
+
 # for coco
 python eval_coco.py --trained_model=weights/coco_400000.pth
 ```
@@ -58,11 +59,13 @@ python eval_coco.py --trained_model=weights/coco_400000.pth
 (1) Make json file for ensemble 
 ```Shell
 # File trained only with voc2007
+# For coco dataset, use python eval_coco.py
 python eval_voc_gsm.py --trained_model=[only07.pth]
 # File before update
 python eval_voc_gsm.py --trained_model=[save update point file]
 # File after update
 python eval_voc_gsm.py --trained_model=ssd_300_120000.pth
+
 ```
 (2) Weight box Fusion
 ```Shell
@@ -77,7 +80,7 @@ python reval_voc_py3.py --voc_dir=../../data/VOCDevkit/ --year=2007 --image_set=
 ```
 
 ## Result
-We report the ablation study.
+We report the ablation study on Pascal VOC.
 
 |    FN    |  FP(filtering+update)  |    Ensemble      |    mAP(%)     |
 |:--------:|:----------------------:|:----------------:|:--------------:|

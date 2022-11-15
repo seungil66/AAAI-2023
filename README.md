@@ -10,7 +10,8 @@ Pytorch version 1.2.0
 torchvision 0.4.0    
 
 ## Dataset
-Using VOC2007 as labeled dataset and VOC2012 as unlabeled dataset.  
+For Pascal VOC, use VOC2007 as labeled dataset and VOC2012 as unlabeled dataset.  
+For MS-COCO, use Co-35k(valminusminival) as labeled dataset and Co-80k(trainval) as unlabeled dataset.
 
 ## Training step
 **Training**
@@ -19,6 +20,9 @@ CUDA_VISIBLE_DEVICES=[] python train_ssd_gsm_ucfilter.py
 
 # You can search for pseudo-label update point in train_ssd_gsm_ucfilter.py with keyword [update]
 CUDA_VISIBLE_DEVICES=[] python train_ssd_gsm_ucfilter.py --adaptive_filtering=True
+
+# use COCO dataset
+CUDA_VISIBLE_DEVICES=[] python train_ssd_gsm_ucfilter.py --dataset=COCO 
 ```
 
 **Training with proposed method**
@@ -45,7 +49,10 @@ CUDA_VISIBLE_DEVICES=[] python train_ssd_gsm_ucfilter.py --adaptive_filtering=Tr
 ## Evaluation step
 **Eval mAP(%)**
 ```
+# for pascal voc
 python eval_voc_gsm.py --trained_model=weights/ssd_300_120000.pth
+# for coco
+python eval_coco.py --trained_model=weights/coco_400000.pth
 ```
 **Ensemble**
 (1) Make json file for ensemble 

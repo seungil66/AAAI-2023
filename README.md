@@ -12,6 +12,18 @@ torchvision 0.4.0
 ## Dataset
 For Pascal VOC, use VOC2007 as labeled dataset and VOC2012 as unlabeled dataset.  
 For MS-COCO, use Co-35k(valminusminival) as labeled dataset and Co-80k(trainval) as unlabeled dataset.
+```text
+uc_ssd
+├── data
+│   ├── coco
+│   │   ├── annotations
+│   │   ├── train2017
+│   │   ├── val2017
+│   │   ├── test2017
+│   ├── VOCdevkit
+│   │   ├── VOC2007
+│   │   ├── VOC2012
+```
 
 ## Training step
 **Training**

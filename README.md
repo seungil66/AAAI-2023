@@ -74,6 +74,7 @@ python eval_voc_gsm.py --trained_model=ssd_300_120000.pth
 cd Weighted-Boxes-Fusion/
 # Input the three files in (1) -> make results
 python wbf_3_voc.py [input1] [input2] [input3]
+
 # For coco dataset
 python wbf_3.py [input1] [input2] [input3]
 ```

@@ -39,6 +39,8 @@ CUDA_VISIBLE_DEVICES=[] python train_ssd_gsm_ucfilter.py --dataset=COCO
      ```Shell
      # The save folder location is set in the file
      python wl_voc_gsm.py --trained_model=[save update point file]
+     # For coco dataset
+     python wl_coco.py --trained_model=[save update point file]
      ```
      - (3) Resume with update file
      ```Shell     
@@ -49,10 +51,10 @@ CUDA_VISIBLE_DEVICES=[] python train_ssd_gsm_ucfilter.py --dataset=COCO
 ## Evaluation step
 **Eval mAP(%)**
 ```Shell
-# for pascal voc
+# For pascal voc
 python eval_voc_gsm.py --trained_model=weights/ssd_300_120000.pth
 
-# for coco
+# For coco
 python eval_coco.py --trained_model=weights/coco_400000.pth
 ```
 **Ensemble**
